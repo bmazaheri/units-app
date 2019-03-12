@@ -1,8 +1,29 @@
 .unit-container {
-  width: 200px;
-  height: 400px;
+  width: 250px;
+  height: 350px;
+  border: solid 1px gray;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
 }
 
 img {
-  width: 150px;
+  width: 250px;
+}
+
+.unit-metadata {
+  padding: 15px 10px 5px;
+}
+
+.title {
+  font-size: 18px;
+  color: dodgerblue;
+  margin-bottom: 20px;
+}
+
+.address{
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  min-height: 32px;
 }

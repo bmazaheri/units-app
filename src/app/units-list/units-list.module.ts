@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 import { UnitComponent } from './unit/unit.component';
 import { ListContainer } from './list/list.container';
 import { FiltersComponent } from './list/filters/filters.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FiltersComponent } from './list/filters/filters.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     UnitsListRoutingModule
   ]
 })

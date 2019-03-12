@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
+import { EMPTY, defer, of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { UnitsService } from './units.service';
-import { UnitsActionTypes, GetUnitsSuccess } from './units.actions';
+import { UnitsActionTypes, GetUnitsSuccess, GetUnits } from './units.actions';
 
 @Injectable()
 export class UnitsEffects {
@@ -17,6 +17,9 @@ export class UnitsEffects {
         catchError(() => EMPTY)
       ))
   );
+
+  @Effect()
+  init$ = defer(() => of(new GetUnits()));
 
   constructor(
     private actions$: Actions,

@@ -29,7 +29,7 @@ export class ListContainer implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.store.dispatch(new GetUnits());
+    // this.store.dispatch(new GetUnits());
     this.getSelectors();
     this.subscribeToParamChanges();
   }
