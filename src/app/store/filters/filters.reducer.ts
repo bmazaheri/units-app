@@ -8,8 +8,14 @@ export function filtersReducer(state = initialState, action: FiltersActions): Fi
     case FiltersActionTypes.SET_CITY_FILTER:
       return { ...state, city: action.payload };
 
+    case FiltersActionTypes.RESET_CITY_FILTER:
+      return { ...state, city: null };
+
     case FiltersActionTypes.SET_NEIGHBOR_FILTER:
       return { ...state, neighborhood: action.payload };
+
+    case FiltersActionTypes.RESET_NEIGHBOR_FILTER:
+      return { ...state, neighborhood: null };
 
     default:
       return state;

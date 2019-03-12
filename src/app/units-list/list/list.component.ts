@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Store, } from '@ngrx/store';
+import { AppState } from '../../store';
+import { Unit } from '../../store/units';
 
 @Component({
   selector: 'app-list',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  @Input()
+  units: Unit[] = [];
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+
   }
 
 }

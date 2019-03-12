@@ -1,3 +1,24 @@
-<p>
-  unit works!
-</p>
+<a class="unit-container">
+  <img [src]="unit.teaserImageUrl" />
+  <div>
+    {{unit.title}}
+  </div>
+  <div>
+    address
+  </div>
+  <div>
+    rooms:
+    {{unit.details?.numberOfRooms}}
+  </div>
+  <div>
+    size:
+    {{unit.details?.size}} {{unit.localization?.areaUnit}}
+  </div>
+  <div>
+    floor:
+    {{unit.details?.floor}}
+  </div>
+  <div>
+    price: {{unit.localization?.currency}}
+  </div>
+</a>

@@ -1,3 +1,8 @@
+export interface UnitResponseModel {
+  data: Unit[];
+  totalElements: number;
+}
+
 export interface Unit {
   address: Address;
   availableFromDate: Date;

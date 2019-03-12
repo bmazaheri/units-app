@@ -1,0 +1,6 @@
+<a *ngFor="let city of cities" [routerLink]="['/list', city]">{{city}}</a>
+<a [routerLink]="['/list']">All cities</a>
+<div *ngFor="let neighborhood of neighborhoods" (click)="selectNeighborhood(neighborhood)">
+  {{neighborhood}}
+</div>
+<div (click)="selectNeighborhood(null)">X</div>

@@ -3,17 +3,17 @@ import {
 } from '@ngrx/store';
 
 import { unitsReducer, UnitsEffects, Unit } from './units';
-import { FiltersEffects, Filters, filtersReducer } from './filters';
+import { Filters, filtersReducer } from './filters';
 
-interface State {
+export interface AppState {
   units: Unit[];
   filters: Filters;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<AppState> = {
   units: unitsReducer,
   filters: filtersReducer,
 };
 
-export const effects = [FiltersEffects, UnitsEffects];
+export const effects = [UnitsEffects];
 
