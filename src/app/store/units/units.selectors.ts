@@ -4,6 +4,11 @@ import { getFilters } from '../filters/filters.selectors';
 
 export const getUnits = (state: AppState) => state.units;
 
+export const getUnit = createSelector(
+  getUnits,
+  (units, props) => units.find(unit => unit.id === props.unitId)
+);
+
 const uniqueStringAccumulator = (acc, text) =>
   acc.concat(acc.includes(text) ? [] : [text]);
 

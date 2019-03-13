@@ -1,0 +1,7 @@
+<a [routerLink]="['']">Back</a>
+<div *ngIf="(unit$ | async); else loading; let unit">
+  <h2>{{ unit.title }}</h2>
+  <div>
+    <img [src]="unit.teaserImageUrl">
+  </div>
+</div>

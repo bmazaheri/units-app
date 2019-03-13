@@ -1,26 +1,24 @@
-<a class="unit-container">
+<div [routerLink]="['/detail', unit.id]" class="unit-container">
   <img [src]="unit.teaserImageUrl" />
   <div class="unit-metadata">
     <div class="title">
-      {{unit.title}}
+      {{ unit.title }}
     </div>
     <div class="address">
-      {{unit.address | addressSerializer}}
+      {{ unit.address | addressSerializer }}
     </div>
     <div>
       rooms:
-      {{unit.details?.numberOfRooms}}
+      {{ unit.details?.numberOfRooms }}
     </div>
     <div>
       size:
-      {{unit.details?.size}} {{unit.localization?.areaUnit}}
+      {{ unit.details?.size }} {{ unit.localization?.areaUnit }}
     </div>
     <div>
       floor:
-      {{unit.details?.floor}}
+      {{ unit.details?.floor }}
     </div>
-    <div>
-      price: {{unit.localization?.currency}}
-    </div>
+    <div>price: {{ unit.localization?.currency }}</div>
   </div>
-</a>
+</div>
