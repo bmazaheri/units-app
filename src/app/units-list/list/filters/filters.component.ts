@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'filters',
@@ -13,10 +13,9 @@ export class FiltersComponent {
   neighborhoods: string[] = [];
 
   @Output()
-  neighborhoodSelect = new EventEmitter<string>()
+  neighborhoodSelect = new EventEmitter<string>();
 
   public selectNeighborhood(neighborhood: string): void {
     this.neighborhoodSelect.emit(neighborhood);
   }
-
 }

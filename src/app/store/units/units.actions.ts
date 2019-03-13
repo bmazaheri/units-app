@@ -16,13 +16,13 @@ export class GetUnits implements Action {
 export class GetUnitsSuccess implements Action {
   readonly type = UnitsActionTypes.GET_SUCCESS;
 
-  constructor(public payload: Unit[]) { }
+  constructor(public payload: Unit[]) {}
 }
 
 export class SetUnitsFilter implements Action {
   readonly type = UnitsActionTypes.GET_SUCCESS;
 
-  constructor(public payload: Unit[]) { }
+  constructor(public payload: Unit[]) {}
 }
 
 export type UnitsActions = GetUnits | GetUnitsSuccess;

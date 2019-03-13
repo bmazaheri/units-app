@@ -1,4 +1,9 @@
-
+<filters
+  [cities]="cities$ | async"
+  [neighborhoods]="neighborhoods$ | async"
+  (neighborhoodSelect)="onNeighborhoodSelect($event)"
+>
+</filters>
 <div class="list-container">
-  <unit *ngFor="let unit of units" [unit]="unit"></unit>
+  <unit *ngFor="let unit of (units$ | async)" [unit]="unit"></unit>
 </div>

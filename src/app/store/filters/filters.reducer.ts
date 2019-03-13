@@ -3,7 +3,10 @@ import { FiltersActions, FiltersActionTypes } from './filters.actions';
 
 const initialState: Filters = { city: null, neighborhood: null };
 
-export function filtersReducer(state = initialState, action: FiltersActions): Filters {
+export function filtersReducer(
+  state = initialState,
+  action: FiltersActions
+): Filters {
   switch (action.type) {
     case FiltersActionTypes.SET_CITY_FILTER:
       return { ...state, city: action.payload };

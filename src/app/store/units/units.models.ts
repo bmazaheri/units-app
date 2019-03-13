@@ -16,7 +16,7 @@ export interface Unit {
   gasCertificate: any;
   id: string;
   isProtectedBuilding: boolean;
-  lastPublishedDate: "2018-07-02T09:31:01.924Z"
+  lastPublishedDate: Date;
   localization: any;
   neighborhood: string;
   teaserImageUrl: string;

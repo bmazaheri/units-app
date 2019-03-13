@@ -5,14 +5,11 @@ import { UnitResponseModel } from './units.models';
 
 @Injectable({ providedIn: 'root' })
 export class UnitsService {
-  constructor(private http: HttpClient) { }
+  private readonly apiUrl =
+    'https://let-api-test.akelius.com/api/v1/DE/marketing/units';
+  constructor(private http: HttpClient) {}
 
   public getUnits(): Observable<UnitResponseModel> {
-    return this.http.get<UnitResponseModel>(this.getApiUrl());
+    return this.http.get<UnitResponseModel>(this.apiUrl);
   }
-
-  private getApiUrl(): string {
-    return 'https://let-api-test.akelius.com/api/v1/DE/marketing/units';
-  }
-
 }
