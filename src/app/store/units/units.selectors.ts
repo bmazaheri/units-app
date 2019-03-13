@@ -2,7 +2,17 @@ import { AppState } from '..';
 import { createSelector } from '@ngrx/store';
 import { getFilters } from '../filters/filters.selectors';
 
-export const getUnits = (state: AppState) => state.units;
+export const getUnitState = (state: AppState) => state.units;
+
+export const getUnits = createSelector(
+  getUnitState,
+  state => state.data
+);
+
+export const getUnitsTotalNumber = createSelector(
+  getUnitState,
+  state => state.totalElements
+);
 
 export const getUnit = createSelector(
   getUnits,

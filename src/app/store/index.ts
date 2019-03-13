@@ -2,11 +2,11 @@ import {
   ActionReducerMap,
 } from '@ngrx/store';
 
-import { unitsReducer, UnitsEffects, Unit } from './units';
+import { unitsReducer, UnitsEffects, UnitsState } from './units';
 import { Filters, filtersReducer } from './filters';
 
 export interface AppState {
-  units: Unit[];
+  units: UnitsState;
   filters: Filters;
 }
 

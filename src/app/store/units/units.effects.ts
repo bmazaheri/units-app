@@ -13,7 +13,7 @@ export class UnitsEffects {
     ofType(UnitsActionTypes.GET),
     mergeMap(() => this.unitsService.getUnits()
       .pipe(
-        map(response => new GetUnitsSuccess(response.data)),
+        map(response => new GetUnitsSuccess(response)),
         catchError(() => EMPTY)
       ))
   );

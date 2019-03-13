@@ -1,4 +1,9 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../../../store';
+import { SetNeighborFilter, ResetNeighborFilter } from '../../../store/filters';
+import { takeWhile } from 'rxjs/operators';
+import { getFilters } from '../../../store/filters/filters.selectors';
 
 @Component({
   selector: 'filters',
@@ -12,10 +17,25 @@ export class FiltersComponent {
   @Input()
   neighborhoods: string[] = [];
 
-  @Output()
-  neighborhoodSelect = new EventEmitter<string>();
+  public selectedNeighborhood: string;
+
+  private isAlive = true;
+
+  constructor(private store: Store<AppState>) {
+    this.store
+      .pipe(
+        takeWhile(() => this.isAlive),
+        select(getFilters)
+      )
+      .subscribe(
+        filter =>
+          (this.selectedNeighborhood = filter ? filter.neighborhood : null)
+      );
+  }
 
   public selectNeighborhood(neighborhood: string): void {
-    this.neighborhoodSelect.emit(neighborhood);
+    neighborhood
+      ? this.store.dispatch(new SetNeighborFilter(neighborhood))
+      : this.store.dispatch(new ResetNeighborFilter());
   }
 }

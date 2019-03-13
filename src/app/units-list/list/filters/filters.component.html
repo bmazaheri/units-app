@@ -1,9 +1,40 @@
-<a *ngFor="let city of cities" [routerLink]="['/list', city]">{{ city }}</a>
-<a [routerLink]="['/list']">All cities</a>
-<div
-  *ngFor="let neighborhood of neighborhoods"
-  (click)="selectNeighborhood(neighborhood)"
->
-  {{ neighborhood }}
+<h2>Cities:</h2>
+<div class="field is-grouped">
+  <p class="control" *ngFor="let city of cities">
+    <button
+      [routerLink]="['/list', city]"
+      class="button is-light"
+      routerLinkActive="is-primary"
+    >
+      {{ city }}
+    </button>
+  </p>
+  <p class="control">
+    <button
+      class="button is-light"
+      routerLink="/list"
+      routerLinkActive="is-primary"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      All cities
+    </button>
+  </p>
 </div>
-<div (click)="selectNeighborhood(null)">X</div>
+<h2>Neighborhoods:</h2>
+<div class="buttons">
+  <div
+    *ngFor="let neighborhood of neighborhoods"
+    (click)="selectNeighborhood(neighborhood)"
+    class="button is-small is-light"
+    [class.is-primary]="neighborhood === selectedNeighborhood"
+  >
+    {{ neighborhood }}
+  </div>
+  <div
+    (click)="selectNeighborhood(null)"
+    *ngIf="selectedNeighborhood"
+    class="button is-small is-danger"
+  >
+    All Neighborhoods
+  </div>
+</div>

@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 import {
   getFilteredCities,
   getCities,
-  getNeighborhoods
+  getNeighborhoods,
+  getUnitsTotalNumber
 } from '../../store/units/units.selectors';
 import { takeWhile } from 'rxjs/operators';
 import {
@@ -26,6 +27,7 @@ export class ListComponent implements OnInit, OnDestroy {
   public units$: Observable<Unit[]>;
   public cities$: Observable<string[]>;
   public neighborhoods$: Observable<string[]>;
+  public totalNumber$: Observable<number>;
 
   private isAlive = true;
 
@@ -38,12 +40,6 @@ export class ListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.isAlive = false;
-  }
-
-  public onNeighborhoodSelect(neighborhood: string): void {
-    neighborhood
-      ? this.store.dispatch(new SetNeighborFilter(neighborhood))
-      : this.store.dispatch(new ResetNeighborFilter());
   }
 
   private subscribeToParamChanges() {
@@ -59,6 +55,7 @@ export class ListComponent implements OnInit, OnDestroy {
     this.units$ = this.selectFromStore(getFilteredCities);
     this.cities$ = this.selectFromStore(getCities);
     this.neighborhoods$ = this.selectFromStore(getNeighborhoods);
+    this.totalNumber$ = this.selectFromStore(getUnitsTotalNumber);
   }
 
   private selectFromStore<K>(

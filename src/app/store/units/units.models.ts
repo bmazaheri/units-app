@@ -1,4 +1,4 @@
-export interface UnitResponseModel {
+export interface UnitsState {
   data: Unit[];
   totalElements: number;
 }
