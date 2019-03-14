@@ -1,3 +1,3 @@
 import { AppState } from '..';
 
-export const getFilters = (state: AppState) => state.filters;
+export const getFilters = (state: AppState) => state.filtersState;

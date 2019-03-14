@@ -6,13 +6,13 @@ import { unitsReducer, UnitsEffects, UnitsState } from './units';
 import { Filters, filtersReducer } from './filters';
 
 export interface AppState {
-  units: UnitsState;
-  filters: Filters;
+  unitsState: UnitsState;
+  filtersState: Filters;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  units: unitsReducer,
-  filters: filtersReducer,
+  unitsState: unitsReducer,
+  filtersState: filtersReducer,
 };
 
 export const effects = [UnitsEffects];

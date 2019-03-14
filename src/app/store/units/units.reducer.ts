@@ -1,8 +1,8 @@
 import { UnitsActions, UnitsActionTypes } from './units.actions';
-import { Unit, UnitsState } from './units.models';
+import { UnitsState } from './units.models';
 
 const initialState: UnitsState = {
-  data: [],
+  units: [],
   totalElements: 0
 };
 
@@ -12,7 +12,10 @@ export function unitsReducer(
 ): UnitsState {
   switch (action.type) {
     case UnitsActionTypes.GET_SUCCESS:
-      return action.payload;
+      return {
+        units: action.payload.data,
+        totalElements: action.payload.totalElements
+      };
 
     default:
       return state;

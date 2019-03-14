@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { UnitsState } from './units.models';
+import { UnitsStateResponseModel } from './units.models';
 
 export enum UnitsActionTypes {
   GET = '[Units] Get',
@@ -16,7 +16,7 @@ export class GetUnits implements Action {
 export class GetUnitsSuccess implements Action {
   readonly type = UnitsActionTypes.GET_SUCCESS;
 
-  constructor(public payload: UnitsState) {}
+  constructor(public payload: UnitsStateResponseModel) {}
 }
 
 export type UnitsActions = GetUnits | GetUnitsSuccess;

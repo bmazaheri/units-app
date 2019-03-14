@@ -8,9 +8,6 @@
   cursor: pointer;
 }
 
-img {
-  width: 250px;
-}
 
 .unit-metadata {
   padding: 15px 10px 5px;
@@ -20,11 +17,22 @@ img {
   font-size: 18px;
   color: dodgerblue;
   margin-bottom: 20px;
+  min-height: 42px;
 }
 
-.address{
+.address {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 10px;
-  min-height: 32px;
+  min-height: 42px;
+}
+
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.metadata > div {
+  width: 50%;
 }

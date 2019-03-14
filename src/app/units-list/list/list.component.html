@@ -1,6 +1,9 @@
 <filters [cities]="cities$ | async" [neighborhoods]="neighborhoods$ | async">
 </filters>
-<div><h2>Units (total: {{totalNumber | async}}):</h2></div>
-<div class="list-container">
-  <unit *ngFor="let unit of (units$ | async)" [unit]="unit"></unit>
+<div class="units-list-container">
+  <h2>Units (total: {{ totalNumber$ | async }}):</h2>
+
+  <div class="units-container">
+    <unit *ngFor="let unit of (units$ | async)" [unit]="unit"></unit>
+  </div>
 </div>

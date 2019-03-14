@@ -1,5 +1,10 @@
-export interface UnitsState {
+export interface UnitsStateResponseModel {
   data: Unit[];
+  totalElements: number;
+}
+
+export interface UnitsState {
+  units: Unit[];
   totalElements: number;
 }
 
@@ -9,7 +14,7 @@ export interface Unit {
   availableFromNowOn: Date;
   building: any;
   countryCode: string;
-  details: any;
+  details: Details;
   direction: string;
   documents: any;
   energyCertificate: any;
@@ -22,6 +27,20 @@ export interface Unit {
   teaserImageUrl: string;
   title: string;
   type: string;
+}
+
+export interface Details {
+  floor: number;
+  numberOfRooms: number;
+  rent: Rent;
+  size: number;
+}
+
+export interface Rent {
+  baseRent: number;
+  deposit: number;
+  operationalCosts: number;
+  totalRent: number;
 }
 
 export interface Address {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UnitsState } from './units.models';
+import { UnitsStateResponseModel } from './units.models';
 
 @Injectable({ providedIn: 'root' })
 export class UnitsService {
@@ -9,7 +9,7 @@ export class UnitsService {
     'https://let-api-test.akelius.com/api/v1/DE/marketing/units';
   constructor(private http: HttpClient) {}
 
-  public getUnits(): Observable<UnitsState> {
-    return this.http.get<UnitsState>(this.apiUrl);
+  public getUnits(): Observable<UnitsStateResponseModel> {
+    return this.http.get<UnitsStateResponseModel>(this.apiUrl);
   }
 }

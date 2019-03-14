@@ -5,6 +5,6 @@ import { Address } from '../store/units';
 export class AddressSerializerPipe implements PipeTransform {
   transform(value: Address): string {
     return `${value.streetName} ${value.houseNumber} ${value.postalCode} 
-      ${value.city}${value.neighborhood ? value.neighborhood : ''}`;
+      ${value.city}${value.borough ? value.borough : ''}`;
   }
 }

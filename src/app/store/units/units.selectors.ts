@@ -2,11 +2,11 @@ import { AppState } from '..';
 import { createSelector } from '@ngrx/store';
 import { getFilters } from '../filters/filters.selectors';
 
-export const getUnitState = (state: AppState) => state.units;
+export const getUnitState = (state: AppState) => state.unitsState;
 
 export const getUnits = createSelector(
   getUnitState,
-  state => state.data
+  state => state.units
 );
 
 export const getUnitsTotalNumber = createSelector(
@@ -38,10 +38,10 @@ export const getNeighborhoods = createSelector(
     units
       .filter(
         unit =>
-          unit.address.neighborhood &&
+          unit.address.borough &&
           (!filter.city || filter.city === unit.address.city)
       )
-      .map(unit => unit.address.neighborhood)
+      .map(unit => unit.address.borough)
       .reduce(uniqueStringAccumulator, [])
 );
 
@@ -52,7 +52,6 @@ export const getFilteredCities = createSelector(
     units.filter(
       unit =>
         (!filter.city || unit.address.city === filter.city) &&
-        (!filter.neighborhood ||
-          unit.address.neighborhood === filter.neighborhood)
+        (!filter.neighborhood || unit.address.borough === filter.neighborhood)
     )
 );

@@ -1,5 +1,7 @@
 <div [routerLink]="['/detail', unit.id]" class="unit-container">
-  <img [src]="unit.teaserImageUrl" />
+  <figure class="image is-3by2">
+    <img [src]="unit.teaserImageUrl" />
+  </figure>
   <div class="unit-metadata">
     <div class="title">
       {{ unit.title }}
@@ -7,19 +9,16 @@
     <div class="address">
       {{ unit.address | addressSerializer }}
     </div>
-    <div>
-      rooms:
-      {{ unit.details?.numberOfRooms }}
+    <div class="metadata">
+      <div>
+        {{ unit.details?.numberOfRooms }} room{{
+          unit.details?.numberOfRooms > 1 ? 's' : ''
+        }}
+      </div>
+      <div>{{ unit.details?.size }} {{ unit.localization?.areaUnit }}</div>
+      <div>floor {{ unit.details?.floor }}</div>
+      <div>price: {{ unit.details?.rent?.totalRent }} {{ unit.localization?.currency }}</div>
     </div>
-    <div>
-      size:
-      {{ unit.details?.size }} {{ unit.localization?.areaUnit }}
-    </div>
-    <div>
-      floor:
-      {{ unit.details?.floor }}
-    </div>
-    <div>price: {{ unit.localization?.currency }}</div>
   </div>
   <div>
     <span class="icon is-small">

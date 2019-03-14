@@ -1,4 +1,9 @@
-.list-container {
+.units-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.units-container {
   display: flex;
   flex-wrap: wrap;
   margin-top: 15px;
